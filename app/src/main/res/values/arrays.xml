@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="navigation_items_array">
+        <item>@string/content</item>
+        <item>@string/about</item>
+        <item>@string/contact</item>
+    </string-array>
+
+    <string-array name="coffe_items_array">
+        <item>@string/espresso</item>
+        <item>@string/cappuccino</item>
+        <item>@string/hot_chocolate</item>
+        <item>@string/latte</item>
+        <item>@string/mocha</item>
+        <item>@string/naked</item>
+        <item>@string/ristretto</item>
+    </string-array>
+    
+    <integer-array name="coffe_drawables">
+        <item>@drawable/espresso</item>
+        <item>@drawable/cappuccino</item>
+        <item>@drawable/hot_chocolate</item>
+        <item>@drawable/latte</item>
+        <item>@drawable/mocha</item>
+        <item>@drawable/naked</item>
+        <item>@drawable/ristretto</item>
+    </integer-array>
+</resources>

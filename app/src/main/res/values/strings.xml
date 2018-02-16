@@ -2,12 +2,17 @@
     <string name="app_name">Coffee App</string>
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
-    <string name="services">Services</string>
+    <string name="content">Products</string>
     <string name="about">About</string>
     <string name="contact">Contact</string>
-    <string-array name="navigation_items_array">
-        <item>@string/services</item>
-        <item>@string/about</item>
-        <item>@string/contact</item>
-    </string-array>
+
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="espresso">Espresso</string>
+    <string name="cappuccino">Cappuccino</string>
+    <string name="hot_chocolate">Hot chocolate</string>
+    <string name="latte">Latte</string>
+    <string name="mocha">Mocha</string>
+    <string name="naked">Naked</string>
+    <string name="ristretto">Ristretto</string>
+
 </resources>

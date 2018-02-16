@@ -1,4 +1,4 @@
-package com.example.coffeeapp;
+package com.example.coffeeapp.ui.activity;
 
 import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
@@ -18,7 +18,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.coffeeapp.R;
 import com.example.coffeeapp.databinding.ActivityMainBinding;
+import com.example.coffeeapp.ui.fragment.AboutFragment;
+import com.example.coffeeapp.ui.fragment.ContactFragment;
+import com.example.coffeeapp.ui.fragment.ContentFragment;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -117,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         switch (mCurrentPosition) {
             case 0:
-                fragment = new ServicesFragment();
+                fragment = new ContentFragment();
                 break;
             case 1:
                 fragment = new AboutFragment();
