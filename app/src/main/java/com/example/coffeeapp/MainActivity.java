@@ -5,10 +5,14 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mNavigationTitles;
+
+    private int mCurrentPosition;
 
     ActivityMainBinding binding;
 
@@ -67,6 +73,34 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             selectItem(0);
+        } else {
+            mCurrentPosition = savedInstanceState.getInt("position");
+            selectItem(mCurrentPosition);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("position", mCurrentPosition);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action buttons
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        switch (item.getItemId()) {
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -78,12 +112,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectItem(int position) {
-        Fragment fragment = new ItemFragment();
-        Bundle args = new Bundle();
-        args.putInt(ItemFragment.ARG_ITEM_NUMBER, position);
-        fragment.setArguments(args);
-
+        mCurrentPosition = position;
         FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = null;
+        switch (mCurrentPosition) {
+            case 0:
+                fragment = new ServicesFragment();
+                break;
+            case 1:
+                fragment = new AboutFragment();
+                break;
+            case 2:
+                fragment = new ContactFragment();
+                break;
+        }
+
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerList.setItemChecked(position, true);
@@ -95,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     public void setTitle(CharSequence title) {
         mTitle = title;
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null) {
+        if (actionBar != null) {
             actionBar.setTitle(mTitle);
         }
     }
@@ -110,5 +153,14 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
