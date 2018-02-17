@@ -5,8 +5,10 @@
     tools:context="com.example.coffeeapp.ui.fragment.ContactFragment">
 
     <TextView
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/contact" />
+        android:textSize="24sp"
+        android:text="@string/lorem_ipsum" />
 
 </FrameLayout>

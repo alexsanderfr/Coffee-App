@@ -13,9 +13,15 @@ import com.example.coffeeapp.R;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder> {
     private Context mContext;
+    private final ContentAdapterOnClickHandler mClickHandler;
 
-    public ContentAdapter(Context context) {
+    public interface ContentAdapterOnClickHandler{
+        void onClick(int position);
+    }
+
+    public ContentAdapter(Context context, ContentAdapterOnClickHandler onClickHandler) {
         mContext = context;
+        mClickHandler = onClickHandler;
     }
 
     @Override
@@ -46,7 +52,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         }
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final TextView itemTextView;
         final ImageView itemImageView;
 
@@ -54,6 +60,13 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             super(itemView);
             itemTextView = itemView.findViewById(R.id.item_tv);
             itemImageView = itemView.findViewById(R.id.item_iv);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int adapterPosition = getAdapterPosition();
+            mClickHandler.onClick(adapterPosition);
         }
     }
 }
