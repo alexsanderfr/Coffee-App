@@ -1,11 +1,13 @@
 package com.example.coffeeapp.ui.activity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.coffeeapp.R;
 import com.example.coffeeapp.databinding.ActivityItemBinding;
@@ -47,5 +49,15 @@ public class ItemActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickShare(View view) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        int position = getIntent().getIntExtra("position", 0);
+        String itemName = getResources().getStringArray(R.array.coffe_items_array)[position];
+        sendIntent.putExtra(Intent.EXTRA_TEXT, itemName);
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share)));
     }
 }

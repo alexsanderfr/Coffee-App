@@ -37,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         android:layout_alignParentBottom="true"
-                        android:background="@drawable/gradient"/>
+                        android:background="@drawable/gradient" />
                 </RelativeLayout>
 
                 <android.support.v7.widget.Toolbar
@@ -80,5 +80,13 @@
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="8dp"
+            android:onClick="onClickShare"
+            android:src="@drawable/ic_share" />
     </android.support.design.widget.CoordinatorLayout>
 </layout>
