@@ -15,7 +15,7 @@ import com.example.coffeeapp.databinding.ActivityItemBinding;
 public class ItemActivity extends AppCompatActivity {
 
     ActivityItemBinding binding;
-
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +26,10 @@ public class ItemActivity extends AppCompatActivity {
         TypedArray drawables = getResources().obtainTypedArray(R.array.coffee_drawables);
         int itemDrawableId = drawables.getResourceId(position, -1);
         String itemDescription = getResources().getStringArray(R.array.coffee_descriptions)[position];
-        binding.photo.setImageResource(itemDrawableId);
-        binding.articleBody.setText(itemDescription);
+        binding.photoIv.setImageResource(itemDrawableId);
+        binding.bodyTv.setText(itemDescription);
         setSupportActionBar(binding.toolbar);
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(itemName);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -52,8 +52,7 @@ public class ItemActivity extends AppCompatActivity {
     public void onClickShare(View view) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        int position = getIntent().getIntExtra("position", 0);
-        String itemName = getResources().getStringArray(R.array.coffee_items_array)[position];
+        String itemName = actionBar.getTitle().toString();
         sendIntent.putExtra(Intent.EXTRA_TEXT, itemName);
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share)));

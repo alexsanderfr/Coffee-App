@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,11 @@ import com.example.coffeeapp.adapter.ContentAdapter;
 import com.example.coffeeapp.databinding.FragmentContentBinding;
 import com.example.coffeeapp.ui.activity.ItemActivity;
 
-public class ContentFragment extends Fragment implements ContentAdapter.ContentAdapterOnClickHandler{
+public class ContentFragment extends Fragment implements ContentAdapter.ContentAdapterOnClickHandler {
 
     FragmentContentBinding binding;
     GridLayoutManager mLayoutManager;
+    boolean isTablet;
 
     public ContentFragment() {
     }
@@ -33,13 +35,13 @@ public class ContentFragment extends Fragment implements ContentAdapter.ContentA
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_content, container, false);
         binding.contentRv.setHasFixedSize(true);
+        isTablet = getResources().getBoolean(R.bool.isTablet);
         int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE && !isTablet) {
             mLayoutManager = new GridLayoutManager(getActivity(), 3);
         } else {
             mLayoutManager = new GridLayoutManager(getActivity(), 2);
         }
-
         binding.contentRv.setLayoutManager(mLayoutManager);
         ContentAdapter contentAdapter = new ContentAdapter(getActivity(), this);
         binding.contentRv.setAdapter(contentAdapter);
@@ -50,6 +52,15 @@ public class ContentFragment extends Fragment implements ContentAdapter.ContentA
     public void onClick(int position) {
         Intent intent = new Intent(getActivity(), ItemActivity.class);
         intent.putExtra("position", position);
-        getActivity().startActivity(intent);
+        if (isTablet) {
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            Fragment fragment = new ItemFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            fragment.setArguments(args);
+            fragmentManager.beginTransaction().replace(R.id.item_frame, fragment).commit();
+        } else {
+            getActivity().startActivity(intent);
+        }
     }
 }

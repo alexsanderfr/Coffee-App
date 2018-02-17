@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentPosition;
 
     ActivityMainBinding binding;
+    boolean isTablet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mNavigationTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+
+        isTablet = getResources().getBoolean(R.bool.isTablet);
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -118,19 +123,39 @@ public class MainActivity extends AppCompatActivity {
     private void selectItem(int position) {
         mCurrentPosition = position;
         FragmentManager fragmentManager = getSupportFragmentManager();
+        ViewGroup.LayoutParams params = binding.contentFrame.getLayoutParams();
         Fragment fragment = null;
         switch (mCurrentPosition) {
             case 0:
                 fragment = new ContentFragment();
+                if (isTablet) {
+                    params.width = 0;
+                }
                 break;
             case 1:
                 fragment = new AboutFragment();
+                if (isTablet) {
+                    Fragment itemFragment = fragmentManager.findFragmentById(R.id.item_frame);
+                    if (itemFragment != null) {
+                        fragmentManager.beginTransaction().remove(itemFragment).commit();
+                    }
+                    params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                }
                 break;
             case 2:
                 fragment = new ContactFragment();
+                if (isTablet) {
+                    Fragment itemFragment = fragmentManager.findFragmentById(R.id.item_frame);
+                    if (itemFragment != null) {
+                        fragmentManager.beginTransaction().remove(itemFragment).commit();
+                    }
+                    params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                }
                 break;
         }
-
+        if (isTablet) {
+            binding.contentFrame.setLayoutParams(params);
+        }
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerList.setItemChecked(position, true);
