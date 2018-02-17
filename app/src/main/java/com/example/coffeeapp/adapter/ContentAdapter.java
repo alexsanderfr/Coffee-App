@@ -34,8 +34,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ContentAdapter.ViewHolder holder, int position) {
-        String itemName = mContext.getResources().getStringArray(R.array.coffe_items_array)[position];
-        TypedArray drawables = mContext.getResources().obtainTypedArray(R.array.coffe_drawables);
+        String itemName = mContext.getResources().getStringArray(R.array.coffee_items_array)[position];
+        TypedArray drawables = mContext.getResources().obtainTypedArray(R.array.coffee_drawables);
         int itemDrawableId = drawables.getResourceId(position, -1);
         holder.itemTextView.setText(itemName);
         holder.itemImageView.setContentDescription(itemName);
@@ -46,7 +46,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     @Override
     public int getItemCount() {
         if (mContext != null) {
-            return mContext.getResources().getStringArray(R.array.coffe_items_array).length;
+            return mContext.getResources().getStringArray(R.array.coffee_items_array).length;
         } else {
             return 0;
         }

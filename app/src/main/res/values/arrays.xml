@@ -6,23 +6,36 @@
         <item>@string/contact</item>
     </string-array>
 
-    <string-array name="coffe_items_array">
+    <string-array name="coffee_items_array">
         <item>@string/espresso</item>
         <item>@string/cappuccino</item>
-        <item>@string/hot_chocolate</item>
         <item>@string/latte</item>
         <item>@string/mocha</item>
         <item>@string/naked</item>
         <item>@string/ristretto</item>
+        <item>@string/crema</item>
+        <item>@string/long_black</item>
     </string-array>
-    
-    <integer-array name="coffe_drawables">
+
+    <integer-array name="coffee_drawables">
         <item>@drawable/espresso</item>
         <item>@drawable/cappuccino</item>
-        <item>@drawable/hot_chocolate</item>
         <item>@drawable/latte</item>
         <item>@drawable/mocha</item>
         <item>@drawable/naked</item>
         <item>@drawable/ristretto</item>
+        <item>@drawable/crema</item>
+        <item>@drawable/long_black</item>
     </integer-array>
+
+    <string-array name="coffee_descriptions">
+        <item>Espresso (/ɛˈsprɛsoʊ/, Italian: [esˈprɛsso], lit. "expressed" from esprimere, "to express" or "to force out") is coffee brewed by expressing or forcing out a small amount of nearly boiling water under pressure through finely ground coffee beans.\n\nEspresso is generally thicker than coffee brewed by other methods, has a higher concentration of suspended and dissolved solids, and has crema on top (a foam with a creamy consistency).As a result of the pressurized brewing process, the flavors and chemicals in a typical cup of espresso are very concentrated. Espresso is also the base for other drinks such as a caffè latte, cappuccino, caffè macchiato, caffè mocha, flat white, or caffè Americano.\n\nEspresso has more caffeine per unit volume than most coffee beverages, but because the usual serving size is much smaller, the total caffeine content is less than a mug of standard brewed coffee, contrary to a common belief. Although the actual caffeine content of any coffee drink varies by size, bean origin, roast method and other factors, the caffeine content of "typical" servings of espresso vs. drip brew are 120 to 170 mg vs. 150 to 200 mg.</item>
+        <item>A cappuccino (/ˌkæpʊˈtʃiːnoʊ/ (About this sound listen); Italian pronunciation: [kapputˈtʃiːno] Italian plural cappuccini) is an Italian coffee drink that is traditionally prepared with double espresso, and steamed milk foam.\n\nVariations of the drink involve the use of cream instead of milk, and flavoring with cinnamon or chocolate powder.It is typically smaller in volume than a caffè latte, with a thicker layer of micro foam.\n\nThe name comes from the Capuchin friars, referring to the colour of their habits, and in this context referring to the colour of the beverage when milk is added in small portion to dark, brewed coffee (today mostly espresso). The physical appearance of a modern cappuccino with espresso créma and steamed milk is a result of a long evolution of the drink.</item>
+        <item>A latte (/ˈlɑːteɪ/ or /ˈlæteɪ/) is a coffee drink made with espresso and steamed milk.\n\nThe term as used in English is a shortened form of the Italian caffè latte [kafˈfɛ ˈlatte], caffelatte [kaffeˈlatte] or caffellatte [kaffelˈlatte], which means "milk coffee". The word is also sometimes spelled latté or lattè in English with different kinds of accent marks, which can be a hyperforeignism or a deliberate attempt to indicate that the word is not pronounced according to the rules of English orthography.\n\nIn northern Europe and Scandinavia the term café au lait has traditionally been used for the combination of espresso and milk. In France, caffè latte is mostly known from the original Italian name of the drink (caffè latte or caffelatte); a combination of espresso and steamed milk equivalent to a "latte" is in French called grand crème and in German Milchkaffee or (in Austria) Wiener Melange.\n\nVariants include replacing the coffee with another drink base such as masala chai (spiced Indian tea), mate, matcha or turmeric, and other types of milk, such as soy milk or almond milk are also used.</item>
+        <item>A caffè mocha (/ˈmɒkə/ or /ˈmoʊkə/), also called mocaccino (Italian: [mokatˈtʃiːno]), is a chocolate-flavored variant of a caffè latte. Other commonly used spellings are mochaccino and also mochachino. The name is derived from the city of Mocha, Yemen, which was one of the centers of early coffee trade.</item>
+        <item>Naked coffee is a double shot of espresso extracted with less water in a Naked portafilter, granting an intense drink with a strong taste</item>
+        <item>Ristretto is traditionally a short shot of espresso coffee made with the normal amount of ground coffee but extracted with about half the amount of water in the same amount of time by using a finer grind. This produces a concentrated shot of coffee per volume. Just pulling a normal shot short will just produce a weaker shot and is not a Ristretto as some believe. The opposite of a ristretto is a lungo, which is typically double the shot volume. Ristretto means “limited” or “restricted” in Italian whereas lungo means “long.” The French equivalent of ristretto is café serré.\n\nRegardless of whether one uses a hand pressed machine or an automatic, a regular double shot is generally considered to be around 14–18 grams of ground coffee extracted into 60 ml (2 fl oz or two shot glasses). Thus, a “double ristretto” consumes the same amount of coffee beans but fills only a single shot glass.</item>
+        <item>Caffè crema (Italian: "cream coffee") refers to two different coffee drinks: An old name for espresso (1940s and 1950s) or a long espresso drink primarily served in Switzerland and Austria and northern Italy (1980s onwards), along the Italian/Swiss and Italian/Austrian border.\n\nAs a colorful term it generally means "espresso", while in technical discussions, referring to the long drink, it may more narrowly be referred to as Swiss caffè crema.\n\nVariant terms include "crema caffè" and the hyperforeignism "café crema" – "café" is French, while "caffè" and "crema" are Italian, thus "café crema" mixes French and Italian.</item>
+        <item>A long black is a style of coffee, commonly found in Australia and New Zealand. Long black is an Australasian synonym for an Americano.\n\nA long black is made by pouring a double-shot of espresso or ristretto over hot water. Usually the water is also heated by the espresso machine. A long black is similar to an Americano, which is made by pouring hot water over a double-shot of espresso or ristretto usually the water is also heated by the espresso machine. Both retain the crema when brewed properly, though in the long black the crema will be more pronounced.</item>
+    </string-array>
 </resources>

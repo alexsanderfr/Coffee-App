@@ -22,14 +22,12 @@ public class ItemActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_item);
 
         int position = getIntent().getIntExtra("position", 0);
-        String itemName = getResources().getStringArray(R.array.coffe_items_array)[position];
-        TypedArray drawables = getResources().obtainTypedArray(R.array.coffe_drawables);
+        String itemName = getResources().getStringArray(R.array.coffee_items_array)[position];
+        TypedArray drawables = getResources().obtainTypedArray(R.array.coffee_drawables);
         int itemDrawableId = drawables.getResourceId(position, -1);
-
+        String itemDescription = getResources().getStringArray(R.array.coffee_descriptions)[position];
         binding.photo.setImageResource(itemDrawableId);
-        String lorem = getResources().getString(R.string.lorem_ipsum);
-        String text = lorem + "\n\n" + lorem + "\n\n";
-        binding.articleBody.setText(text);
+        binding.articleBody.setText(itemDescription);
         setSupportActionBar(binding.toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -55,7 +53,7 @@ public class ItemActivity extends AppCompatActivity {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         int position = getIntent().getIntExtra("position", 0);
-        String itemName = getResources().getStringArray(R.array.coffe_items_array)[position];
+        String itemName = getResources().getStringArray(R.array.coffee_items_array)[position];
         sendIntent.putExtra(Intent.EXTRA_TEXT, itemName);
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share)));
