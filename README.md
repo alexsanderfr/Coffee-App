@@ -1,4 +1,4 @@
-# Reddit App
+# Coffee App
 
 Coffee app model for institutional app development
 
